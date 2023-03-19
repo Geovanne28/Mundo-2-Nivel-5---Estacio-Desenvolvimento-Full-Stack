@@ -1,0 +1,39 @@
+<main>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-12">
+                <h1>Catálogo de Livros</h1>
+            </div>
+            <div class="col-12 mt-4">
+                <table class="table mt-1 table-striped">
+                    <thead>
+                        <tr class="bg-dark text-white">
+                            <th scope="col">Título</th>
+                            <th scope="col">Resumo</th>
+                            <th scope="col">Editora</th>
+                            <th scope="col">Autores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let livro of livros">
+                            <td>
+                                {{livro.titulo}}
+                                <br>
+                                <a (click)="excluir(livro.codigo)" class="mt-2 btn-sm btn btn-danger text-white">Excluir</a>
+                            </td>
+                            <td>{{livro.resumo}}</td>
+                            <td>{{obterNome(livro.codEditora)}}</td>
+                            <td>
+                                <ul>
+                                    <li *ngFor="let autor of livro.autores">
+                                        {{autor}}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

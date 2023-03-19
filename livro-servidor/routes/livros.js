@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
     const livros = await obterLivros();
     // res.render('livros', { livros });
-    res.json({livros});
+    res.json(livros);
 });
 
 router.post('/', async (req, res, next) => {
