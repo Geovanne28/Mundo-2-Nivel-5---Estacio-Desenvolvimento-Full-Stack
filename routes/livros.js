@@ -4,11 +4,13 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     const livros = await obterLivros();
-    res.render('livros', { livros });
+    // res.render('livros', { livros });
+    res.json({livros});
 });
 
 router.post('/', async (req, res, next) => {
     const livro = req.body.livro;
+    // console.log(livro);
     const result =  await incluir(livro);   
     if(result) {
         res.json({result: 'Livro incluído com sucesso'});
